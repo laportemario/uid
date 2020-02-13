@@ -5,25 +5,30 @@
 - l'identifiant n'est pas prédictible
 - l'identifiant se base sur un générateur de nombres pseudo aléatoires cryptographiquement fort
 
+## Prérequis
+- Disposer d'une base de donnée PostgresSQL en écoute sur le port 5432
+- Java 
+
 ## Installation
 Pour configurer ce projet, clonez d'abord le référentiel suivant :
 ```bash
 $ git clone https://github.com/laportemario/uid.git
 ```
-
-## Prérequis
-- Disposer d'une base de donnée PostgresSQL en écoute sur le port 5432
-- Java 
-
-
+et placez vous dans le répertoire uid
+```bash
+$ cd uid
+```
 ## Lancement du serveur
-
-Placez vous dans le répertoire server et utilisez le script mvnw pour installer le projet.
+Placez vous dans le répertoire server
+```bash
+$ cd server
+```
+Utilisez le script mvnw pour installer le projet.
 ```bash
 $ ./mvnw install
 ```
 
-Pour executer le programme, placez-vous dans le répertoire target qui vient d'être généré et utilisez la commande suivante :
+Pour executer le programme, placez vous dans le répertoire target qui vient d'être généré et utilisé la commande suivante :
 ```bash
 $ java -jar uid-0.0.1.jar
 ```
@@ -45,8 +50,19 @@ $ curl -s -X POST -H 'Accept: application/json' -H "Authorization: Bearer $TOKEN
 ```bash
 $ curl -s -X GET -H 'Accept: application/json' -H "Authorization: Bearer $TOKEN" http://localhost:8080/uid
 ```
+Exemple de réponse : 
+```json
+{
+ "id":"089599550"
+}
+```
+
 
 ## Lancement du client
+Placez vous dans le répertoire client
+```bash
+$ cd client
+```
 
 Installer les modules npm
 ```bash
@@ -57,4 +73,5 @@ Démarrer l'application
 ```bash
 $ npm start
 ```
+L'application est disponible à l'adresse http://localhost:3030 depuis votre navigateur.
 
